@@ -18,7 +18,6 @@ onMounted(() => {
       .then((response) => {
         events.value = response.data
         totalEvents = response.headers['x-total-count']
-
       })
       .catch((error) => {
         console.error(error)
