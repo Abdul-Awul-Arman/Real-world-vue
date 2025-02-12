@@ -4,6 +4,7 @@ const event = props.event
 const props = defineProps({
   event: {
     required: true,
+    type: Object,
   },
 })
 </script>
