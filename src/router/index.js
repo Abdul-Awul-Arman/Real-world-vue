@@ -46,17 +46,11 @@ const router = createRouter({
         return { path: '/events/' + to.params.afterEvent }
       },
     },
-
     {
       path: '/about-us',
       name: 'about',
       component: AboutView,
-      // alias: '/about',
     },
-    // {
-    //   path: '/about',
-    //   redirect: { name: 'about' },
-    // },
     {
       path: '/:catchAll(.*)',
       name: 'NotFound',
@@ -74,12 +68,7 @@ const router = createRouter({
       component: NetworkError,
     },
   ],
-})
-
-const router = createRouter({
-  history: createWebHistory(import.meta.env, BASE_URL),
-  routes,
-  scrollBehavior() {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
     } else {
