@@ -5,6 +5,7 @@ import Edit from '../views/event/Edit.vue'
 import Layout from '../views/event/Layout.vue'
 import Register from '../views/event/Register.vue'
 import EventListView from '../views/EventListView.vue'
+import NetworkError from '../views/NetworkError.vue'
 import NotFound from '../views/NotFound.vue'
 
 const router = createRouter({
@@ -67,7 +68,24 @@ const router = createRouter({
       component: NotFound,
       props: true,
     },
+    {
+      path: '/networkerror',
+      name: 'networkerror',
+      component: NetworkError,
+    },
   ],
+})
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env, BASE_URL),
+  routes,
+  scrollBehavior() {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  },
 })
 
 export default router
